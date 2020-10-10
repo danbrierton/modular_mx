@@ -1,7 +1,7 @@
 import React, { Component }   from 'react';
-import Header from '../components/header'
-import Footer from '../components/footer'
-import NavBar from '../components/navBar'
+import Header from '../components/global/header'
+import Footer from '../components/global/footer'
+import NavBar from '../components/global/navBar'
 
 class LandingPage extends Component {
     constructor(props) {

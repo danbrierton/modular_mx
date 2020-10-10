@@ -1,10 +1,9 @@
 import React from 'react';
 
-const NewComponentTemplate = (props) => {
-
+const SettingsModal = (props) => {
     return(
         <p>New Component Template Test</p>
     )
 }
 
-export default NewComponentTemplate
+export default SettingsModal
