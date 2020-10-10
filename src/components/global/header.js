@@ -19,7 +19,6 @@ const Header = (props) => {
     const settingsModalClose = () => {
         // Get the modal
         var modal = document.getElementById("myModal");
-
         modal.style.display = "none";
     }
 
@@ -33,6 +32,13 @@ const Header = (props) => {
         }
     }
 
+    const {
+        state,
+        handleUserPageAdd, 
+        handleSettingsContentAdd, 
+        handleNewPageNameChange,
+        handleNewPageFieldsChange
+    } = props
 
     return(
         <header>
@@ -60,7 +66,13 @@ const Header = (props) => {
                         onClick={()=>{settingsModalClose()}}>
                         &times;
                     </span>
-                    {SettingsModal()}
+                    <SettingsModal 
+                        state = {state}
+                        handleUserPageAdd = {handleUserPageAdd}
+                        handleSettingsContentAdd = {handleSettingsContentAdd}
+                        handleNewPageNameChange = {handleNewPageNameChange}
+                        handleNewPageFieldsChange = {handleNewPageFieldsChange}
+                    />
                 </div>
             </div>
 
