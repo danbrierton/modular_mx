@@ -1,5 +1,7 @@
 import React, { Component }   from 'react';
 import Header from '../components/header'
+import Footer from '../components/footer'
+import NavBar from '../components/navBar'
 
 class LandingPage extends Component {
     constructor(props) {
@@ -10,8 +12,12 @@ class LandingPage extends Component {
     render(){
         return(
             <React.Fragment>
-                 <Header/>
-                <p>Landing Page Test</p>
+                <div id="returnFragment">
+                    <Header/>
+                    <NavBar/>
+                    <p>Landing Page Test</p>
+                    <Footer/>
+                </div>
             </React.Fragment>
         )
     }
