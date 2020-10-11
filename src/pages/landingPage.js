@@ -2,15 +2,17 @@ import React, { Component }   from 'react';
 import Header from '../components/global/header'
 import Footer from '../components/global/footer'
 import NavBar from '../components/global/navBar'
+import ContentPane from '../components/global/contentPane'
 
 class LandingPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userPages: [],
+            userPages: [[]],
             settingsContentCounter: null,
             newPageName: null,
-            newPageFields: []
+            newPageFields: [],
+            currentlySelectedPage: 0
         }
     }
 
@@ -46,6 +48,18 @@ class LandingPage extends Component {
         )
     }
 
+    handleNewPageFieldsZero = () => {
+        this.setState(
+            {newPageFields: []}
+        )
+    }
+
+    handleCurrentlySelectedPageChange = (value) => {
+        this.setState(
+            {currentlySelectedPage: value}
+        )
+    }
+
     render(){
         const {
             state,
@@ -53,6 +67,8 @@ class LandingPage extends Component {
             handleSettingsContentChange, 
             handleNewPageNameChange,
             handleNewPageFieldsChange,
+            handleCurrentlySelectedPageChange,
+            handleNewPageFieldsZero
         } = this
 
         return(
@@ -64,16 +80,15 @@ class LandingPage extends Component {
                         handleSettingsContentChange = {handleSettingsContentChange}
                         handleNewPageNameChange = {handleNewPageNameChange}
                         handleNewPageFieldsChange = {handleNewPageFieldsChange}
+                        handleNewPageFieldsZero = {handleNewPageFieldsZero}
                     />
                     <NavBar
                         state = {state}
+                        handleCurrentlySelectedPageChange = {handleCurrentlySelectedPageChange}
                     />
-                    <div id="content">
-                        {/* <p>userPages Value: {this.state.userPages}</p> */}
-                        <p>settingsContent Value: {this.state.settingsContentCounter}</p>
-                        <p>newPageName Value: {this.state.newPageName}</p>
-                        <p>newPageFields Value: {this.state.newPageFields}</p>
-                    </div>
+                    <ContentPane
+                        state = {state}
+                    />
                     <Footer/>
                 </div>
             </React.Fragment>
