@@ -7,23 +7,26 @@ class LandingPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userPages: [1],
-            settingsContentCounter: 0,
+            userPages: [],
+            settingsContentCounter: null,
             newPageName: null,
             newPageFields: []
         }
     }
 
-    handleUserPageAdd = (newObject) => {
+    handleUserPageAdd = (newArray) => {
         this.setState(
-            {userPages: [...this.state.userPages, newObject]}
+            {userPages: [...this.state.userPages, newArray]}
         )
     }
 
-    handleSettingsContentAdd = () => {
-        this.setState(
-            {settingsContentCounter: this.state.settingsContentCounter+1}
-        )
+    handleSettingsContentChange = (value) => {
+        if (value=="zero"){this.setState({settingsContentCounter: null})}
+        else {
+            this.setState(
+                {settingsContentCounter: this.state.settingsContentCounter+1}
+            )
+        }
     }
 
     handleNewPageNameChange = (string) => {
@@ -34,7 +37,7 @@ class LandingPage extends Component {
 
     handleNewPageFieldsChange = (index, string) => {
         //copy the array
-        let newPageFieldsCopy = [...this.state.newPageFields];
+        var newPageFieldsCopy = [...this.state.newPageFields];
         //change the array copy
         newPageFieldsCopy[index] = string; 
         //change the original aray
@@ -47,9 +50,9 @@ class LandingPage extends Component {
         const {
             state,
             handleUserPageAdd, 
-            handleSettingsContentAdd, 
+            handleSettingsContentChange, 
             handleNewPageNameChange,
-            handleNewPageFieldsChange
+            handleNewPageFieldsChange,
         } = this
 
         return(
@@ -58,13 +61,15 @@ class LandingPage extends Component {
                     <Header
                         state = {state}
                         handleUserPageAdd = {handleUserPageAdd}
-                        handleSettingsContentAdd = {handleSettingsContentAdd}
+                        handleSettingsContentChange = {handleSettingsContentChange}
                         handleNewPageNameChange = {handleNewPageNameChange}
                         handleNewPageFieldsChange = {handleNewPageFieldsChange}
                     />
-                    <NavBar/>
+                    <NavBar
+                        state = {state}
+                    />
                     <div id="content">
-                        <p>userPages Value: {this.state.userPages}</p>
+                        {/* <p>userPages Value: {this.state.userPages}</p> */}
                         <p>settingsContent Value: {this.state.settingsContentCounter}</p>
                         <p>newPageName Value: {this.state.newPageName}</p>
                         <p>newPageFields Value: {this.state.newPageFields}</p>
