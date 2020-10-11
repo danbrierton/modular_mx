@@ -35,9 +35,9 @@ const Header = (props) => {
     const {
         state,
         handleUserPageAdd, 
-        handleSettingsContentAdd, 
+        handleSettingsContentChange, 
         handleNewPageNameChange,
-        handleNewPageFieldsChange
+        handleNewPageFieldsChange,
     } = props
 
     return(
@@ -69,7 +69,7 @@ const Header = (props) => {
                     <SettingsModal 
                         state = {state}
                         handleUserPageAdd = {handleUserPageAdd}
-                        handleSettingsContentAdd = {handleSettingsContentAdd}
+                        handleSettingsContentChange = {handleSettingsContentChange}
                         handleNewPageNameChange = {handleNewPageNameChange}
                         handleNewPageFieldsChange = {handleNewPageFieldsChange}
                     />
