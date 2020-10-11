@@ -38,6 +38,7 @@ const Header = (props) => {
         handleSettingsContentChange, 
         handleNewPageNameChange,
         handleNewPageFieldsChange,
+        handleNewPageFieldsZero
     } = props
 
     return(
@@ -72,6 +73,7 @@ const Header = (props) => {
                         handleSettingsContentChange = {handleSettingsContentChange}
                         handleNewPageNameChange = {handleNewPageNameChange}
                         handleNewPageFieldsChange = {handleNewPageFieldsChange}
+                        handleNewPageFieldsZero = {handleNewPageFieldsZero}
                     />
                 </div>
             </div>

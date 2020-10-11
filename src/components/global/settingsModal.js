@@ -8,6 +8,7 @@ const SettingsModal = (props) => {
         handleSettingsContentChange,
         handleNewPageNameChange,
         handleNewPageFieldsChange,
+        handleNewPageFieldsZero
     } = props
 
     const renderContentOptions = () => {
@@ -33,8 +34,8 @@ const SettingsModal = (props) => {
                     <p key={index}>
                         {element.map(
                             (element2, index2, array2)=>{
-                                if (index2==0){return `Name: ${element2}`}
-                                else {return `, Content: ${element2}`}
+                                if (index2==0){return `Name: ${element2}, Content:`}
+                                else {return <li>{element2}</li>}
                             }  
                         )}
                     </p>
@@ -53,29 +54,31 @@ const SettingsModal = (props) => {
             </div>
             <div id="settingsNewPage">
                 <h3>Add a New Page:</h3>
-                <button onClick={()=>{handleSettingsContentChange()}}>
-                    Add Content Field
-                </button>
-                <br/> <br/>
+
                 <input 
                     id="newPageName"
                     placeholder="Page Name"
                     onChange={event=>handleNewPageNameChange(event.target.value)}>
                 </input>
+                <button onClick={()=>{handleSettingsContentChange()}}>
+                    Add Content Field
+                </button>
+                <br/> 
                 <br/>
                 {renderContentOptions()}
                 <br/> <br/>
                 <button 
                     onClick={
                         ()=>{
-                            handleUserPageAdd([props.state.newPageName,props.state.newPageFields]);
+                            handleUserPageAdd([props.state.newPageName,...props.state.newPageFields]);
                             document.getElementById('newPageName').value = '';
                             handleNewPageNameChange(null);
                             handleSettingsContentChange("zero");
+                            handleNewPageFieldsZero()
                         }
                     }
                 >
-                    Add New Page
+                    Save
                 </button>
             </div>
         </React.Fragment>

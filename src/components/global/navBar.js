@@ -2,12 +2,27 @@ import React from 'react';
 import './navBar.css'
 
 const NavBar = (props) => {
+    const {
+        handleCurrentlySelectedPageChange
+    } = props
+
+    const renderButtons = () => {
+        return props.state.userPages.map(
+            (element,index, array) => {
+                return <button 
+                    key={index}
+                    className="navButton"
+                    onClick={()=>handleCurrentlySelectedPageChange(index)}
+                    >
+                        {element[0]}
+                </button>
+            }
+        );
+    }
 
     return(
         <nav>
-            <button className="navButton">Custom Page 1</button>
-            <button className="navButton">Custom Page 2</button>
-            <button className="navButton">Custom Page 3</button>
+            {renderButtons()}
         </nav>
     )
 }
