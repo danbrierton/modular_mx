@@ -21,6 +21,7 @@ const SettingsModal = (props) => {
                 >
                     <option value="null"></option>
                     <option value="test">Test</option>
+                    <option value="afOrderForm">AF Order Form (2005)</option>
                 </select>)
         }
         return (returnArray)
@@ -34,7 +35,7 @@ const SettingsModal = (props) => {
                     <p key={index}>
                         {element.map(
                             (element2, index2, array2)=>{
-                                if (index2==0){return `Name: ${element2}, Content:`}
+                                if (index2===0){return `Name: ${element2}, Content:`}
                                 else {return <li>{element2}</li>}
                             }  
                         )}
