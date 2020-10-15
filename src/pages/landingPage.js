@@ -23,7 +23,7 @@ class LandingPage extends Component {
     }
 
     handleSettingsContentChange = (value) => {
-        if (value=="zero"){this.setState({settingsContentCounter: null})}
+        if (value==="zero"){this.setState({settingsContentCounter: null})}
         else {
             this.setState(
                 {settingsContentCounter: this.state.settingsContentCounter+1}
@@ -71,6 +71,8 @@ class LandingPage extends Component {
             handleNewPageFieldsZero
         } = this
 
+        console.log(state)
+
         return(
             <React.Fragment>
                 <div id="returnFragment">
@@ -86,10 +88,13 @@ class LandingPage extends Component {
                         state = {state}
                         handleCurrentlySelectedPageChange = {handleCurrentlySelectedPageChange}
                     />
+                    <div>
                     <ContentPane
                         state = {state}
                     />
+                    </div>
                     <Footer/>
+                    
                 </div>
             </React.Fragment>
         )
