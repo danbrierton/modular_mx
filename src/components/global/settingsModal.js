@@ -15,14 +15,26 @@ const SettingsModal = (props) => {
         let returnArray = []
         for (let i=0; i<props.state.settingsContentCounter; i++){
             returnArray.push(
-                <select 
-                    key={i}
-                    onChange={event=>handleNewPageFieldsChange(i, event.target.value)}
-                >
-                    <option value="null"></option>
-                    <option value="test">Test</option>
-                    <option value="afOrderForm">AF Order Form (2005)</option>
-                </select>)
+                <div>
+                    <select 
+                        key={i}
+                        onChange={event=>handleNewPageFieldsChange(i, event.target.value)}
+                    >
+                        <option value="null"></option>
+                        <option value="AF Order Form (2005)">               AF Order Form (2005)                </option>
+                        <option value="AF Acft Delayed Discrepancies">      AF Acft Delayed Discrepancies       </option>
+                        <option value="AF Acft Engine Data">                AF Acft Engine Data                 </option>
+                        <option value="AF Acft Exceptional Release">        AF Acft Exceptional Release         </option>
+                        <option value="AF Acft Inspection Certification">   AF Acft Inspection Certification    </option>
+                        <option value="AF Acft Lifing">                     AF Acft Lifing                      </option>
+                        <option value="AF Acft Reccuring Maintenance">      AF Acft Reccuring Maintenance       </option>
+                        <option value="AF Acft Servicing Update">           AF Acft Servicing Update            </option>
+                        <option value="AF Acft Upcoming Major Inspections"> AF Acft Upcomign Major Inspections  </option>
+                        <option value="AF Acft New Work Order">             AF Acft New Work Order              </option>
+                    </select>
+                    <br/>
+                </div>
+            )
         }
         return (returnArray)
     }
@@ -61,13 +73,14 @@ const SettingsModal = (props) => {
                     placeholder="Page Name"
                     onChange={event=>handleNewPageNameChange(event.target.value)}>
                 </input>
+                <br/>
+                <br/>
                 <button onClick={()=>{handleSettingsContentChange()}}>
                     Add Content Field
                 </button>
-                <br/> 
                 <br/>
                 {renderContentOptions()}
-                <br/> <br/>
+                <br/>
                 <button 
                     onClick={
                         ()=>{
