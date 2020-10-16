@@ -9,13 +9,26 @@ const NavBar = (props) => {
     const renderButtons = () => {
         return props.state.userPages.map(
             (element,index, array) => {
-                return <button 
-                    key={index}
-                    className="navButton"
-                    onClick={()=>handleCurrentlySelectedPageChange(index)}
-                    >
-                        {element[0]}
-                </button>
+                if(index!==0 && index!==props.state.currentlySelectedPage)
+                {
+                    return <button 
+                        key={index}
+                        className="navButton"
+                        onClick={()=>handleCurrentlySelectedPageChange(index)}
+                        >
+                            {element[0]}
+                    </button>
+                }
+                else if(index!==0 && index===props.state.currentlySelectedPage)
+                {
+                    return <button 
+                        key={index}
+                        className="navButton activeButton"
+                        onClick={()=>handleCurrentlySelectedPageChange(index)}
+                        >
+                            {element[0]}
+                    </button>
+                }
             }
         );
     }

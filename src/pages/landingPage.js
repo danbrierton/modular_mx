@@ -3,6 +3,7 @@ import Header from '../components/global/header'
 import Footer from '../components/global/footer'
 import NavBar from '../components/global/navBar'
 import ContentPane from '../components/global/contentPane'
+import './landingPage.css'
 
 class LandingPage extends Component {
     constructor(props) {
@@ -88,7 +89,7 @@ class LandingPage extends Component {
                         state = {state}
                         handleCurrentlySelectedPageChange = {handleCurrentlySelectedPageChange}
                     />
-                    <div>
+                    <div id="contentPaneDiv">
                     <ContentPane
                         state = {state}
                     />
